@@ -55,9 +55,9 @@ const LoginForm = props => {
         />
       </div>
       <div>
-        <button className={styles.button}>Log In</button>
+        <button> <img src="../../images/YES.png" alt="" style={{width:'50px'}}/></button>
         <Link to="/">
-          <button>Cancel</button>
+          <button> <img src="../../images/NO.png" alt="no pic" style={{width:'50px'}}/></button>
         </Link>
       </div>
     </form>

@@ -1,27 +1,61 @@
-.App {
+body {
+
   text-align: center;
+  font-family: 'Patrick Hand';
+}
+.app {
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  border-radius: 50%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 10s linear;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.icon-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: clamp(400px, 80vw, 1200px);
+  margin: auto;
   justify-content: center;
+  border-radius: 10px;
+}
+
+#classDiv {
+  background-color:bisque;
+  border: 1px solid black;
+  width: 125px;
+  display: grid;
+  justify-items: center;
+  padding: 15px;
+  margin: 1rem;
+  border-radius: 10px;
+}
+
+.App-header {
+  background-color: #b3ccff;
+  min-height: 5vh;
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content:space-around;
+  padding: 30px;
   font-size: calc(10px + 2vmin);
   color: white;
+  position:sticky;
+
 }
 
 .App-link {
@@ -35,4 +69,157 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.pic {
+  max-width: 600px;
+}
+.fixed {
+  background-attachment: fixed;
+}
+.card {
+  background-color: bisque;
+  border: 1px solid black;
+  justify-items: center;
+  padding: 15px;
+  margin: 1rem;
+  width: 250px;
+  border-radius: 10px;
+}
+
+.center {
+  align-items: center;
+  justify-items: center;
+}
+
+.monster_card {
+  display: grid;
+  background-color: bisque;
+  border: 1px solid black;
+  justify-items: center;
+  align-items: center;
+  padding: 15px;
+  margin: 1rem;
+  width: 200px;
+}
+
+.spell_card {
+  display: block;
+  background-color: bisque;
+  border: 1px solid black;
+  justify-items: center;
+  align-items: center;
+  padding: 15px;
+  margin: 1rem;
+  width: 200px;
+}
+
+.stats {
+  display: block;
+  background-color: bisque;
+  border: 1px solid black;
+  justify-items: center;
+  align-items: center;
+  padding: 15px;
+  margin: 1rem;
+  width: 174px;
+  border-radius: 10px;
+}
+
+.basepic {
+  background-image: url("../public/images/DnD.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  min-height: 100vh;
+ 
+}
+
+.title {
+  background-color: #ffe3c2;
+  border: 1px solid black;
+  padding: 15px;
+  margin: 1rem;
+  width: 200px;
+  font-family: 'Bangers', cursive;
+}
+
+/* .charSheet {
+  background-image: url('../public/images/CharSheet.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  width: 1100px;
+  height: 900px;
+} */
+
+.grid {
+  display: flex;
+  align-items: flex;
+}
+
+.race {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 1000px;
+  
+}
+
+.largeCard {
+  display: block;
+  background-color: bisque;
+  border: 1px solid black;
+  justify-items: center;
+  padding: 15px;
+  margin: 1rem;
+  width: 900px;
+  border-radius: 10px;
+}
+
+.largeHeader {
+  display:flex;
+  justify-content:start;
+}
+
+.cardBtn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.smallCardBtn {
+  border-radius: 10px;
+  background-color: transparent;
+  border: none;
+  color:blue  
+}
+
+.zoom a:hover{
+  transform: scale(1.1);
+  transition: all ease 500ms;
+}
+
+.pulse a:hover{ 
+  animation: pulse 1s infinite;
+  animation-timing-function: linear;   
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1);}
+  100% { transform: scale(1); }
+}
+
+.lowerGridCard {
+  display: grid;
+  grid-area: auto;
+}
+
+.approveBtn {
+  background-image: url(../public/images/YES.png);
+  
+}
+
+.cancelBtn {
+  background-image: url(../public/images/NO.png);
 }
