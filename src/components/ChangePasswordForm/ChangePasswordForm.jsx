@@ -40,7 +40,7 @@ const ChangePasswordForm = props => {
     <form
       autoComplete="off"
       onSubmit={handleSubmit}
-      className={styles.container}
+      className='app card'
     >
       <div className={styles.inputContainer}>
         <label htmlFor="password" className={styles.label}>Current Password</label>

@@ -27,7 +27,6 @@ const App = () => {
     {url: "/race-list", name: "Race List"},
     {url: "/monster-list", name: "Scary Monsters"}, 
     {url: "/spell-search", name: "Search for Spells"},
-    {url: "/create-char", name: "Create Character"},
     {url: "/MyCharaters", name: "My Charaters"}
   ])
 
@@ -51,7 +50,7 @@ const App = () => {
         <Route path='/monster' element={<MonsterDetails />} />
         <Route path='/spell-search' element={<SpellSearch />} />
         <Route path='/spell/:spellName' element={<SpellDetails />} />
-        <Route path='/create-char' element={<CreateChar />} />
+        <Route path='/createChar' element={<CreateChar />} />
         <Route path='/race-list' element={<RaceList/>} />
         <Route path='/race' element={<RaceDetails/>} />
         <Route path="/" element={<Landing user={user} />} />

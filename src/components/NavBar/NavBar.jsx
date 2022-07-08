@@ -1,15 +1,18 @@
 import { Link } from 'react-router-dom'
+import { useNavigate} from 'react-router-dom'
+
 
 const NavBar = ({ user, handleLogout, navItems }) => {
+  const navagate = useNavigate()
   const handleClassChange = (e) => {
     if (e.target.value ==='Profiles') { 
-      <Link to="/profiles"></Link>
+      navagate('/profiles')
     }
     if (e.target.value ==='LOG OUT') {
       handleLogout()
     }
     if(e.target.value ==='Change Password'){
-      <Link to="/changePassword"></Link>
+      navagate('/changePassword')
     }
   }
   return (
@@ -27,8 +30,8 @@ const NavBar = ({ user, handleLogout, navItems }) => {
             )}
             <li style={{color:'purple', }}>Welcome, {user.name}</li>
             <select onChange={ value =>  handleClassChange(value) } name="navDropDown" id="navDropDown">
-              <option style={{}}className='card'value="•••"> • • •</option>
-              <option className='card'value='Profile'>Profiles</option>
+              <option style={{color:'red'}}className='card'value="•••">User Options</option>
+              <option className='card'value='Profiles'>Profiles</option>
               <option className='card'value='Change Password'>Change Password</option>
               <option className='card'value='LOG OUT'>LOG OUT</option>
             </select>

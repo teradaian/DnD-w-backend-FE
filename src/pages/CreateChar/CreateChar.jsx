@@ -9,9 +9,9 @@ import Die from '../../components/Die/Die'
 const CreateChar = () => {
   const [races, setRaces] = useState([])
   const [classes, setClasses] = useState([])
-  // const [charClass, setCharClass] = useState({})
-  // const [charRace, setCharRace] = useState([])
-  // const [classDetails, setClassDetails] = useState({})
+  const [charClass, setCharClass] = useState({})
+  const [charRace, setCharRace] = useState([])
+  const [classDetails, setClassDetails] = useState({})
   const [STR, setSTR] = useState('')
   const [DEX, setDEX] = useState('')
   const [CON, setCON] = useState('')
@@ -20,7 +20,7 @@ const CreateChar = () => {
   const [CHA, setCHA] = useState('')
   const [currentCharClass, setCurrentCharClass] = useState({})
   const [currentCharRace, setCurrentCharRace] = useState({})
-  // const [statBonus, setStatBonus] = useState()
+  const [statBonus, setStatBonus] = useState()
   const [strBonus, setStrBonus] = useState()
   const [dexBonus, setDexBonus] = useState()
   const [conBonus, setConBonus] = useState()
@@ -34,7 +34,7 @@ const CreateChar = () => {
     getRaceList()
     .then(raceData => setRaces(raceData.results))
     getBonuses()
-  }, [])
+  }, [currentCharRace.ability_bonuses])
 
   const handleClassChange = (e) => {
     getClassStats(e.target.value.toLowerCase())
@@ -66,7 +66,7 @@ const CreateChar = () => {
   }
   
   function getRandomInt () {
-    let min = Math.ceil(3);
+    let min = Math.ceil(5);
     let max = Math.floor(18);
     return (Math.floor(Math.random() * (max - min) + min)) 
   }  
@@ -117,14 +117,10 @@ const CreateChar = () => {
     })
   }
  
-  const randomIdx = Math.floor(Math.random() * 100)
 
   return ( 
     <div className='charSheet'>
       <div className='app'>
-        <div className='card'>
-          <img src={`https://robohash.org/${randomIdx}.png?set=set2`} alt="A scary monster!" width='250' />
-        </div>
         <div className='card'>
           <h2>Your Character Deets</h2>
           <h3>Class : 

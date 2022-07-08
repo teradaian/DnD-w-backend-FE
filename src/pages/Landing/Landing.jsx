@@ -13,7 +13,7 @@ const Landing = ({ user }) => {
             />D 
           <br />
           Home Page
-            <h1>Welcome to this app for D&D enthusiasts.</h1>
+            <>Welcome to this app for D&D enthusiasts.</>
         </h1> 
         <p>This site was made for learning purposes only. <br />
         All API resources are property of https://www.dnd5eapi.co and are used under strict guidelines </p>

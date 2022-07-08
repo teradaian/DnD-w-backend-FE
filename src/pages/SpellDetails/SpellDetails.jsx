@@ -10,7 +10,7 @@ const SpellDetails = (props) => {
     getSpellDetails(spellName)
     .then(spellData => setSpellDetails(spellData))
   }, [])
-  console.log(spellDetails);
+  
   return (
   <>
     <div>
