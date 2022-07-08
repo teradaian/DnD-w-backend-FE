@@ -17,6 +17,7 @@ import SpellDetails from './pages/SpellDetails/SpellDetails'
 import CreateChar from './pages/CreateChar/CreateChar'
 import RaceList from './pages/RaceList/RaceList'
 import RaceDetails from './pages/RaceDetails/RaceDetails'
+import MyChars from './pages/MyChars/MyChars'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
@@ -27,6 +28,7 @@ const App = () => {
     {url: "/monster-list", name: "Scary Monsters"}, 
     {url: "/spell-search", name: "Search for Spells"},
     {url: "/create-char", name: "Create Character"},
+    {url: "/MyCharaters", name: "My Charaters"}
   ])
 
   const handleLogout = () => {
@@ -57,6 +59,7 @@ const App = () => {
         <Route path="/login" element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
         <Route path="/profiles" element={user ? <Profiles /> : <Navigate to="/login" />} />
         <Route path="/changePassword" element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />} />
+        <Route path="/myCharaters" element={<MyChars />} />
       </Routes>
     </div>
   )
