@@ -18,6 +18,8 @@ import CreateChar from './pages/CreateChar/CreateChar'
 import RaceList from './pages/RaceList/RaceList'
 import RaceDetails from './pages/RaceDetails/RaceDetails'
 import MyChars from './pages/MyChars/MyChars'
+import CharSheetView from './pages/CharSheetView/CharSheetView'
+
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
@@ -59,6 +61,7 @@ const App = () => {
         <Route path="/profiles" element={user ? <Profiles /> : <Navigate to="/login" />} />
         <Route path="/changePassword" element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />} />
         <Route path="/myCharaters" element={<MyChars />} />
+        <Route path="/CharSheetView" element={<CharSheetView/>} />
       </Routes>
     </div>
   )

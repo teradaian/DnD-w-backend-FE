@@ -1,8 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import * as charSheetService from '../../services/charSheetService'
+import CharCard from '../../components/CharCard/Card'
 
 
 const MyChars = (props) => {
+  const [charSheets, setCharSheets] = useState([])
+
+  const handleDeleteCharSheet = async id => {
+    const deletedCharSheet = await charSheetService.deleteOne(id)
+    setCharSheets(charSheets.filter(sheet => sheet._id !== deletedCharSheet._id))
+  }
+
+  useEffect(() =>{
+    const fetchAllCharSheets = async () => {
+      const charSheetsData = await charSheetService.getAll()
+      setCharSheets(charSheetsData)
+    }
+    fetchAllCharSheets()
+  },[])
   
   return ( 
     <>
@@ -13,7 +29,13 @@ const MyChars = (props) => {
         </div>
       </div>
       <div className='app card'>
-        here are all your Charaters
+        {charSheets.length ?
+          charSheets.map((charSheet,idx) =>
+            <CharCard key={idx} handleDeleteCharSheet={handleDeleteCharSheet} charSheet={charSheet} />
+            ) 
+            :
+            <h1>No Charater Sheets</h1>
+        }
       </div>
     </>
    )

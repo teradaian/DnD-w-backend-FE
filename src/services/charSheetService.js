@@ -1,14 +1,14 @@
 import * as tokenService from '../services/tokenService'
 const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/charSheets`
 
-async function create(puppy) {
+async function create(charSheet) {
   const res = await fetch(BASE_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${tokenService.getToken()}`
     },
-    body: JSON.stringify(puppy)
+    body: JSON.stringify(charSheet)
   })
 	return res.json()
 }
@@ -28,14 +28,19 @@ async function getAll() {
   return res.json()
 }
 
-async function update(puppy) {
-  const res = await fetch(`${BASE_URL}/${puppy._id}`, {
+async function GetMyChars() {
+  const res = await fetch(BASE_URL)
+  return res.json()
+}
+
+async function update(charSheet) {
+  const res = await fetch(`${BASE_URL}/${charSheet._id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${tokenService.getToken()}`
     },
-    body: JSON.stringify(puppy)
+    body: JSON.stringify(charSheet)
   })
 	return res.json()
 }
@@ -44,5 +49,6 @@ export {
 	create,
   getAll,
   deleteOne,
-  update
+  update,
+  GetMyChars
 }
