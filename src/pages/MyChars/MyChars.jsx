@@ -22,13 +22,13 @@ const MyChars = (props) => {
   
   return ( 
     <>
-      <div className='app'>
+      <div className='app lowerGridCard'>
         <div>
           <h1 className='card title'>My Char Page</h1>
           <Link className='card' to='/createChar'>Create a New Charater</Link>
         </div>
       </div>
-      <div className='app card'>
+      <div className='app noWrap '>
         {charSheets.length ?
           charSheets.map((charSheet,idx) =>
             <CharCard key={idx} handleDeleteCharSheet={handleDeleteCharSheet} charSheet={charSheet} />

@@ -279,12 +279,12 @@ const CreateChar = () => {
               onClick={() => {handleToggle()} }  
               hidden={toggle ? true : false}
             >Roll Stat</button>
-                  <h4>STR: {STR===null ? <button onClick={()=>{setSTR(roll4Stat);setToggle()}}>Add Stat</button> : `Rolled` }</h4>
-                  <h4>DEX: {DEX===null ? <button onClick={()=>{setDEX(roll4Stat);setToggle()}}>Add Stat</button> : 'Rolled' }</h4>
-                  <h4>CON: {CON===null ? <button onClick={()=>{setCON(roll4Stat);setToggle()}}>Add Stat</button> : 'Rolled' }</h4>
-                  <h4>INT: {INT===null ? <button onClick={()=>{setINT(roll4Stat);setToggle()}}>Add Stat</button> : 'Rolled' }</h4>
-                  <h4>WIS: {WIS===null ? <button onClick={()=>{setWIS(roll4Stat);setToggle()}}>Add Stat</button> : 'Rolled' }</h4>
-                  <h4>CHA: {CHA===null ? <button onClick={()=>{setCHA(roll4Stat);setToggle()}}>Add Stat</button> : 'Rolled' }</h4>
+                  <h4>STR: {STR===null ? <button onClick={()=>{setSTR(roll4Stat);setToggle();setRoll4Stat('Roll')}}>Add Stat</button> : `Rolled` }</h4>
+                  <h4>DEX: {DEX===null ? <button onClick={()=>{setDEX(roll4Stat);setToggle();setRoll4Stat('Roll')}}>Add Stat</button> : 'Rolled' }</h4>
+                  <h4>CON: {CON===null ? <button onClick={()=>{setCON(roll4Stat);setToggle();setRoll4Stat('Roll')}}>Add Stat</button> : 'Rolled' }</h4>
+                  <h4>INT: {INT===null ? <button onClick={()=>{setINT(roll4Stat);setToggle();setRoll4Stat('Roll')}}>Add Stat</button> : 'Rolled' }</h4>
+                  <h4>WIS: {WIS===null ? <button onClick={()=>{setWIS(roll4Stat);setToggle();setRoll4Stat('Roll')}}>Add Stat</button> : 'Rolled' }</h4>
+                  <h4>CHA: {CHA===null ? <button onClick={()=>{setCHA(roll4Stat);setToggle();setRoll4Stat('Roll')}}>Add Stat</button> : 'Rolled' }</h4>
           </div>        
           <div className='card'> 
             <h2>Starting Proficiencies</h2>

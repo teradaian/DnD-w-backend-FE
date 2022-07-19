@@ -8,6 +8,16 @@ const CharSheetView = () => {
     <>
       <div className='app'>
         <div className="card">
+        <img 
+          style={{ width: "100px", height: "100px" }}
+          src={`/images/${state.class}.svg`} 
+          alt="class-logo"
+        />
+         <img 
+          style={{ width: "100px", height: "100px" }}
+          src={`/images/${state.race}.png`} 
+          alt="race-logo"
+        />
           <h1>{state.name}</h1><br/>
           <h2>
             Class: {state.class}<br/>

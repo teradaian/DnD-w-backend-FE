@@ -22,7 +22,7 @@ const RaceList = (props) => {
                 <img 
                   style={{ width: "100px", height: "100px" }}
                   src={`/images/${raceTitle.name}.png`} 
-                  alt="class-logo"
+                  alt="race-logo"
                   />
                 {raceTitle.name}
               </div>

@@ -2,12 +2,22 @@ import { Link } from "react-router-dom"
 
 const Card = (props) => {
 
-
+  console.log(props.charSheet.race);
 
   return (
     <>
-      <div className="app">
+      <div>
         <div className="card title"  >
+        <img 
+          style={{ width: "50px", height: "50px" }}
+          src={`/images/${props.charSheet.class}.svg`} 
+          alt="class-logo"
+        />
+         <img 
+          style={{ width: "50px", height: "50px" }}
+          src={`/images/${props.charSheet.race}.png`} 
+          alt="race-logo"
+        />
           <div>
             <Link 
               to='/CharSheetView'
@@ -16,13 +26,13 @@ const Card = (props) => {
               {props.charSheet.name}
               </Link>
           </div>
-          {props.charSheet.class}
-        </div>
+          {props.charSheet.class}<br/>
         <button 
           onClick={()=> props.handleDeleteCharSheet(props.charSheet._id)}
         >
           Delete
         </button>
+        </div>
       </div>
     </>
   )
