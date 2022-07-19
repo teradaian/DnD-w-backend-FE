@@ -29,7 +29,7 @@ const App = () => {
     {url: "/race-list", name: "Race List"},
     {url: "/monster-list", name: "Scary Monsters"}, 
     {url: "/spell-search", name: "Search for Spells"},
-    {url: "/MyCharaters", name: "My Charaters"}
+    {url: "/MyCharacters", name: "My Characters"}
   ])
 
   const handleLogout = () => {
@@ -60,7 +60,7 @@ const App = () => {
         <Route path="/login" element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
         <Route path="/profiles" element={user ? <Profiles /> : <Navigate to="/login" />} />
         <Route path="/changePassword" element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />} />
-        <Route path="/myCharaters" element={<MyChars />} />
+        <Route path="/myCharacters" element={<MyChars />} />
         <Route path="/CharSheetView" element={<CharSheetView/>} />
       </Routes>
     </div>

@@ -25,7 +25,7 @@ const MyChars = (props) => {
       <div className='app lowerGridCard'>
         <div>
           <h1 className='card title'>My Char Page</h1>
-          <Link className='card' to='/createChar'>Create a New Charater</Link>
+          <Link className='card' to='/createChar'>Create a New Character</Link>
         </div>
       </div>
       <div className='app noWrap '>
@@ -34,7 +34,7 @@ const MyChars = (props) => {
             <CharCard key={idx} handleDeleteCharSheet={handleDeleteCharSheet} charSheet={charSheet} />
             ) 
             :
-            <h1>No Charater Sheets</h1>
+            <h1>No Character Sheets</h1>
         }
       </div>
     </>

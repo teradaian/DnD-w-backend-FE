@@ -45,7 +45,7 @@ const CreateChar = () => {
 
   useEffect(() => {
     formElement.current.checkValidity() && STR!==null && DEX!==null&& CON!==null && INT!==null && WIS!==null && CHA!==null ? setValidForm(true) : setValidForm(false)
-  }, [formData])
+  }, [formData,STR,DEX,CON,WIS,INT,CHA])
   
   useEffect(()=> {
     getClassList()
@@ -58,7 +58,7 @@ const CreateChar = () => {
   const handleAddCharSheet = async (newCharSheetData) => {
     const newCharSheet = await charSheetService.create(newCharSheetData)
     setCharSheet([...charSheet, newCharSheet])
-    navigate('/MyCharaters')
+    navigate('/MyCharacters')
   }
 
   const handleClassChange = (e) => {
@@ -83,6 +83,7 @@ const CreateChar = () => {
       class: formData.class,
       race: formData.race,
       level: formData.level,
+      align: formData.align,
       str: STR,
       dex: DEX,
       con: CON,
@@ -183,7 +184,7 @@ const CreateChar = () => {
             <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
               <div>
                 <label className="form-label">
-                  Charater's Name
+                  Character's Name
                 </label>
                 <input 
                   type="text"
@@ -197,7 +198,7 @@ const CreateChar = () => {
               </div>
               <div>
                 <label className="form-label">
-                  Charater's Class<br/>
+                  Character's Class<br/>
                 </label>
                 <div 
                   type="text"
@@ -218,7 +219,7 @@ const CreateChar = () => {
               </div>
               <div>
                 <label className="form-label">
-                  Charater's Race<br/>
+                  Character's Race<br/>
                 </label>    
                 <div 
                   type="text"
@@ -236,10 +237,35 @@ const CreateChar = () => {
                     ))}
                   </select>
                 </div>
+                <label className="form-label">
+                  Character's Alignment<br/>
+                </label> 
+                <div 
+                  type="text"
+                  className="form-control"
+                  id="align"
+                  name="align"
+                  value={formData.align}
+                  onChange={handleChange}
+                  required
+                >
+                  <select onChange={ value =>  handleRaceChange(value) } name="align" id="align">
+                    <option>Pick Alignment</option>
+                      <option value='Lawful Good' >Lawful Good</option>
+                      <option value='Neutral Good' >Neutral Good</option>
+                      <option value='Chaotic Good' >Chaotic Good</option>
+                      <option value='Lawful Neutral' >Lawful Neutral</option>
+                      <option value='Neutral' >Neutral</option>
+                      <option value='Chaotic Neutral' >Chaotic Neutral</option>
+                      <option value='Lawful Evil'>Lawful Evil</option>
+                      <option value='Neutral Evil' >Neutral Evil</option>
+                      <option value='Chaotic Evil' >Chaotic Evil</option>
+                  </select>
+                </div>
               </div>
               <div>
                 <label className="form-label">
-                  Charater's level<br/>
+                  Character's level<br/>
                 </label>
                 <input 
                   type="number"
@@ -252,7 +278,7 @@ const CreateChar = () => {
               </div>
               <div className="form-control">
                   <label className="form-label">
-                    Charater's Attr:<br/>
+                    Character's Attr:<br/>
                   </label>   
                   <h4 className="form-control" value={STR} name="str" id="str" >STR: {STR}</h4>
                   <h4 className="form-control" value={DEX} name='dex' id='dex' >DEX: {DEX}</h4>
@@ -267,7 +293,7 @@ const CreateChar = () => {
                   type="submit"
                   disabled={!validForm}
                 >
-                  Add Charater
+                  Add Character
                 </button>
               </div>
             </form>

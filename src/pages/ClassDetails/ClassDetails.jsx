@@ -40,8 +40,8 @@ const ClassDetails = () => {
                 </div>  
               <h3 hidden={toggle ? true : false}>Quick View</h3>
             <h3>Sub Classes</h3>
-            {classDetails.subclasses.map((sub)=>(
-              <p>{sub.name}</p>
+            {classDetails.subclasses.map((sub,idx)=>(
+              <p key={idx}>{sub.name}</p>
             ))}
             <button hidden={toggle ? true : false} onClick={()=> setToggle(!toggle)} className='pulse smallCardBtn'>
               {toggle ? 'Hide Details' : 'Show Details'}
@@ -52,12 +52,12 @@ const ClassDetails = () => {
                   <div>Hit die: d{classDetails.hit_die}</div>
                     <h3>Speed: {classDetails.speed}</h3>
                     <h3>Proficiencies:</h3>
-                    {classDetails.proficiencies.map((proficiency) => (
-                      <div key={proficiency.index}>{proficiency.name}</div>
+                    {classDetails.proficiencies.map((proficiency,idx) => (
+                      <div key={idx}>{proficiency.name}</div>
                       ))}
                     <h3>Starting Stuff</h3>  
-                    {classDetails.starting_equipment.map((stuff)=>(
-                      <div key={stuff.index}>{stuff.equipment.name}</div>
+                    {classDetails.starting_equipment.map((stuff,idx)=>(
+                      <div key={idx}>{stuff.equipment.name}</div>
                       ))}
                 </div>
 
