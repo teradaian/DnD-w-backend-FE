@@ -105,7 +105,7 @@ const CharSheetView = () => {
           <div id='sheet-class'>{state.class}</div>
           <div id='sheet-level'>{state.level}</div>
           <div id='sheet-background'>{state.background}</div>
-          <div id='playerName'>player name</div>
+          <div id='playerName'>{state.owner.name}</div>
           <div id='sheet-race'>{state.race}</div>
           <div id='alignment'>{state.align}</div>
           <div id='sheet-str'>{state.str}</div>

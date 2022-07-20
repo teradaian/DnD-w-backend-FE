@@ -28,13 +28,15 @@ const MyChars = (props) => {
           <Link className='card' to='/createChar'>Create a New Character</Link>
         </div>
       </div>
-      <div className='app noWrap '>
+      <div className='app noWrap'>
         {charSheets.length ?
           charSheets.map((charSheet,idx) =>
             <CharCard key={idx} handleDeleteCharSheet={handleDeleteCharSheet} charSheet={charSheet} />
-            ) 
-            :
+          ) 
+        :
+          <div className='app card'>
             <h1>No Character Sheets</h1>
+          </div>
         }
       </div>
     </>
