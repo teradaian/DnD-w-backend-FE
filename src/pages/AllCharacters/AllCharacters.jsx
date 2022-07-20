@@ -4,7 +4,7 @@ import * as charSheetService from '../../services/charSheetService'
 import CharCard from '../../components/CharCard/Card'
 
 
-const MyChars = (props) => {
+const AllChars = (props) => {
   const [charSheets, setCharSheets] = useState([])
 
   const handleDeleteCharSheet = async id => {
@@ -13,18 +13,18 @@ const MyChars = (props) => {
   }
 
   useEffect(() =>{
-    const fetchMyCharSheets = async (id) => {
-      const charSheetsData = await charSheetService.GetMyChars(id)
+    const fetchAllCharSheets = async () => {
+      const charSheetsData = await charSheetService.getAll()
       setCharSheets(charSheetsData)
     }
-    fetchMyCharSheets()
+    fetchAllCharSheets()
   },[])
   
   return ( 
     <>
       <div className='app lowerGridCard'>
         <div>
-          <h1 className='card title'>My Char Page</h1>
+          <h1 className='card title'>All Characters Page</h1>
           <Link className='card' to='/createChar'>Create a New Character</Link>
         </div>
       </div>
@@ -41,4 +41,4 @@ const MyChars = (props) => {
    )
 }
  
-export default MyChars
+export default AllChars

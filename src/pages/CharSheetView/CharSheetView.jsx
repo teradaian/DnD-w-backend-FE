@@ -1,7 +1,5 @@
-import { useState } from "react"
-import { useLocation } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
-import { useEffect } from "react"
+import { useState, useEffect } from "react"
+import { useLocation, useNavigate } from "react-router-dom"
 import { getRaceList } from '../../services/api-calls'
 import { getClassList } from '../../services/api-calls'
 import { getClassStats } from '../../services/api-calls'
@@ -67,42 +65,57 @@ const CharSheetView = () => {
     })
   }
 
+  console.log(state);
 
   return ( 
     <>
-      <div className='app'>
-        <div className="card">
-        <img 
-          style={{ width: "100px", height: "100px" }}
-          src={`/images/${state.class}.svg`} 
-          alt="class-logo"
-        />
-         <img 
-          style={{ width: "100px", height: "100px" }}
-          src={`/images/${state.race}.png`} 
-          alt="race-logo"
-        />
-          <h1>{state.name}</h1><br/>
-          <h2>
-            Class: {state.class}<br/>
-            Race: {state.race}<br/>
-            Level: {state.level}<br/>
-            Alignment: <br/>{state.align}<br/>
-          </h2>
-        </div>
-        <div className="card flexLeft">
-
-          <h3 className="flexLeft" >STR: {state.str} ({table[state.str]}) </h3>
-          <h3>INT: {state.int} ({table[state.int]}) </h3>
-          <h3>DEX: {state.dex} ({table[state.dex]}) </h3>
-          <h3>CON: {state.con} ({table[state.con]}) </h3>
-          <h3>WIS: {state.wis} ({table[state.wis]}) </h3>
-          <h3>CHA: {state.cha} ({table[state.cha]}) </h3>
-                
-
+          <div className='app charSheetCard'>
+        <div id='charSheet'>
+          <img 
+            id='race-pic'
+            style={{ width: "30px", height: "30px" }}
+            src={`/images/${state.race}.png`} 
+            alt="race-logo"
+          />
+          <img 
+            id='class-pic'
+            style={{ width: "30px", height: "30px" }}
+            src={`/images/${state.class}.svg`} 
+            alt="class-logo"
+          />
+          <div id='charName'>{state.name}</div>
+          <div id='sheet-class'>{state.class}</div>
+          <div id='sheet-level'>{state.level}</div>
+          <div id='background'>{state.background}</div>
+          <div id='playerName'>player name</div>
+          <div id='sheet-race'>{state.race}</div>
+          <div id='alignment'>{state.align}</div>
+          <div id='sheet-str'>{state.str}</div>
+          <div id='sheet-dex'>{state.dex}</div>
+          <div id='sheet-con'>{state.con}</div>
+          <div id='sheet-int'>{state.int}</div>
+          <div id='sheet-wis'>{state.wis}</div>
+          <div id='sheet-cha'>{state.cha}</div>
+          <div id='inspir'>333</div>
+          <div id='profBonus'>55</div>
+          <div id='st-str'>str</div>
+          <div id='st-dex'>dex</div>
+          <div id='st-con'>con</div>
+          <div id='st-int'>int</div>
+          <div id='st-wis'>wis</div>
+          <div id='st-cha'>cha</div>
+          <div id='armorClass'>3</div>
+          <div id='init'>16</div>
+          <div id='speed'>22</div>
+          <div id='str-bns'>{table[state.str]}</div>
+          <div id='dex-bns'>{table[state.dex]}</div>
+          <div id='con-bns'>{table[state.con]}</div>
+          <div id='int-bns'>{table[state.int]}</div>
+          <div id='wis-bns'>{table[state.wis]}</div>
+          <div id='cha-bns'>{table[state.cha]}</div>
         </div>
       </div>
-      <button onClick={()=> navigate('/MyCharacters')}>Back</button>
+      <button onClick={()=> navigate('/AllCharacters')}>Back</button>
     </>
   );
 }

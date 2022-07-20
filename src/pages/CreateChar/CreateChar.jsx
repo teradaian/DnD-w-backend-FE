@@ -41,7 +41,10 @@ const CreateChar = () => {
     class: '',
     race: '',
     level: 1,
+    background:'',
   })
+
+  const backgrounds =['Acolyte', 'Charlatan', 'Criminal', 'Entertainer', 'Folk', 'Guild Artisan', 'Hermit', 'Noble', 'Outlander', 'Sage', 'Sailor', 'Soldier', 'Urchin']
 
   useEffect(() => {
     formElement.current.checkValidity() && STR!==null && DEX!==null&& CON!==null && INT!==null && WIS!==null && CHA!==null ? setValidForm(true) : setValidForm(false)
@@ -84,6 +87,7 @@ const CreateChar = () => {
       race: formData.race,
       level: formData.level,
       align: formData.align,
+      background: formData.background,
       str: STR,
       dex: DEX,
       con: CON,
@@ -249,7 +253,7 @@ const CreateChar = () => {
                   onChange={handleChange}
                   required
                 >
-                  <select onChange={ value =>  handleRaceChange(value) } name="align" id="align">
+                  <select name="align" id="align">
                     <option>Pick Alignment</option>
                       <option value='Lawful Good' >Lawful Good</option>
                       <option value='Neutral Good' >Neutral Good</option>
@@ -260,6 +264,25 @@ const CreateChar = () => {
                       <option value='Lawful Evil'>Lawful Evil</option>
                       <option value='Neutral Evil' >Neutral Evil</option>
                       <option value='Chaotic Evil' >Chaotic Evil</option>
+                  </select>
+                </div>
+                <label className="form-label">
+                  Character's Background<br/>
+                </label>    
+                <div 
+                  type="text"
+                  className="form-control"
+                  id="background"
+                  name="background"
+                  value={formData.background}
+                  onChange={handleChange}
+                  required
+                >
+                  <select name="background" id="background">
+                    <option>Pick Background</option>
+                    {backgrounds.map((bg,idx) => (
+                      <option value={bg} key={idx}>{bg}</option>
+                    ))}
                   </select>
                 </div>
               </div>

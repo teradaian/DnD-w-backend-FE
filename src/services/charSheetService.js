@@ -29,7 +29,14 @@ async function getAll() {
 }
 
 async function GetMyChars() {
-  const res = await fetch(BASE_URL)
+  const res = await fetch(`${BASE_URL}/myIndex`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    },
+    body: JSON.stringify()
+  })
   return res.json()
 }
 

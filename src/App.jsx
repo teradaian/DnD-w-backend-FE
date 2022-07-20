@@ -19,6 +19,8 @@ import RaceList from './pages/RaceList/RaceList'
 import RaceDetails from './pages/RaceDetails/RaceDetails'
 import MyChars from './pages/MyChars/MyChars'
 import CharSheetView from './pages/CharSheetView/CharSheetView'
+import AllCharacters from './pages/AllCharacters/AllCharacters'
+import PrintPage from './pages/PrintPage/PrintPage'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -29,7 +31,8 @@ const App = () => {
     {url: "/race-list", name: "Race List"},
     {url: "/monster-list", name: "Scary Monsters"}, 
     {url: "/spell-search", name: "Search for Spells"},
-    {url: "/MyCharacters", name: "My Characters"}
+    {url: "/MyCharacters", name: "My Characters"},
+    {url: "/AllCharacters", name: "All Characters"}
   ])
 
   const handleLogout = () => {
@@ -60,8 +63,10 @@ const App = () => {
         <Route path="/login" element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
         <Route path="/profiles" element={user ? <Profiles /> : <Navigate to="/login" />} />
         <Route path="/changePassword" element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />} />
+        <Route path='/allCharacters' element={<AllCharacters />} />
         <Route path="/myCharacters" element={<MyChars />} />
         <Route path="/CharSheetView" element={<CharSheetView/>} />
+        <Route path="/printpage" element={<PrintPage/>} />
       </Routes>
     </div>
   )
