@@ -20,7 +20,7 @@ import RaceDetails from './pages/RaceDetails/RaceDetails'
 import MyChars from './pages/MyChars/MyChars'
 import CharSheetView from './pages/CharSheetView/CharSheetView'
 import AllCharacters from './pages/AllCharacters/AllCharacters'
-import PrintPage from './pages/PrintPage/PrintPage'
+
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -66,7 +66,6 @@ const App = () => {
         <Route path='/allCharacters' element={<AllCharacters />} />
         <Route path="/myCharacters" element={<MyChars />} />
         <Route path="/CharSheetView" element={<CharSheetView/>} />
-        <Route path="/printpage" element={<PrintPage/>} />
       </Routes>
     </div>
   )

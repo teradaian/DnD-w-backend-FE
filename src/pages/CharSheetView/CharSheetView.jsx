@@ -4,10 +4,13 @@ import { getRaceList } from '../../services/api-calls'
 import { getClassList } from '../../services/api-calls'
 import { getClassStats } from '../../services/api-calls'
 import { getRaceStats } from '../../services/api-calls'
+import './CharSheetView.css'
 
 const CharSheetView = () => {
   const {state} = useLocation()
   const navigate = useNavigate()
+  const [races, setRaces] = useState([])
+  const [classes, setClasses] = useState([])
   const [strBonus, setStrBonus] = useState()
   const [dexBonus, setDexBonus] = useState()
   const [conBonus, setConBonus] = useState()
@@ -15,7 +18,19 @@ const CharSheetView = () => {
   const [wisBonus, setWisBonus] = useState()
   const [chaBonus, setChaBonus] = useState()
   const [currentCharRace, setCurrentCharRace] = useState({})
+
+  useEffect(()=> {
+    getRaceStats(state.race.toLowerCase())
+    .then(charRaceData => setCurrentCharRace(charRaceData))
+    getClassList()
+    .then(classData => setClasses(classData.results))
+    getRaceList()
+    .then(raceData => setRaces(raceData.results))
+    getBonuses()
+  }, [state,currentCharRace])
  
+  console.log(currentCharRace);
+
   const table = {
     3: "-4",
     4: "-3",
@@ -86,7 +101,7 @@ const CharSheetView = () => {
           <div id='charName'>{state.name}</div>
           <div id='sheet-class'>{state.class}</div>
           <div id='sheet-level'>{state.level}</div>
-          <div id='background'>{state.background}</div>
+          <div id='sheet-background'>{state.background}</div>
           <div id='playerName'>player name</div>
           <div id='sheet-race'>{state.race}</div>
           <div id='alignment'>{state.align}</div>
@@ -98,15 +113,15 @@ const CharSheetView = () => {
           <div id='sheet-cha'>{state.cha}</div>
           <div id='inspir'>333</div>
           <div id='profBonus'>55</div>
-          <div id='st-str'>str</div>
-          <div id='st-dex'>dex</div>
-          <div id='st-con'>con</div>
-          <div id='st-int'>int</div>
-          <div id='st-wis'>wis</div>
-          <div id='st-cha'>cha</div>
+          <div id='st-str'> {strBonus ? strBonus : 0} </div>
+          <div id='st-dex'> {dexBonus ? dexBonus : 0} </div>
+          <div id='st-con'> {conBonus ? conBonus : 0} </div>
+          <div id='st-int'> {intBonus ? intBonus : 0} </div>
+          <div id='st-wis'> {wisBonus ? wisBonus : 0} </div>
+          <div id='st-cha'> {chaBonus ? chaBonus : 0} </div>
           <div id='armorClass'>3</div>
-          <div id='init'>16</div>
-          <div id='speed'>22</div>
+          <div id='init'> </div>
+          <div id='speed'> </div>
           <div id='str-bns'>{table[state.str]}</div>
           <div id='dex-bns'>{table[state.dex]}</div>
           <div id='con-bns'>{table[state.con]}</div>

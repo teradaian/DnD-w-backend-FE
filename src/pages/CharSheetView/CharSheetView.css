@@ -92,32 +92,32 @@
 #st-str{
   position: absolute;
   top: 460px;
-  left: 178px;
+  left: 182px;
 }
 #st-dex{
   position: absolute;
   top: 478px;
-  left: 175px;
+  left: 182px;
 }
 #st-con{
   position: absolute;
   top: 495px;
-  left: 175px;
+  left: 182px;
 }
 #st-int{
   position: absolute;
   top: 513px;
-  left: 177px;
+  left: 182px;
 }
 #st-wis{
   position: absolute;
   top: 531px;
-  left: 175px;
+  left: 182px;
 }
 #st-cha{
   position: absolute;
   top: 547px;
-  left: 175px;
+  left: 182px;
 }
 #inspir{
   position: absolute;
@@ -186,7 +186,7 @@
   left: 800px;
 }
 
-#background {
+#sheet-background {
   position: absolute;
   top: 265px;
   left: 522px;
