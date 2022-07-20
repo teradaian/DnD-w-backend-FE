@@ -202,3 +202,11 @@
   width: 800px;
   border-radius: 10px;
 }
+
+#sheet-inv{
+  font-size:small;
+  position: absolute;
+  top: 958px;
+  left: 400px;
+  margin: 4px;
+}

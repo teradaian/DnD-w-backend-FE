@@ -36,6 +36,7 @@ const CreateChar = () => {
   const formElement = useRef()
   const [toggle,setToggle]=useState(false)
   const [validForm, setValidForm] = useState(false)
+  const [inv, setInv] = useState([])
   const [formData, setFormData] = useState({
     name: '',
     class: '',
@@ -57,6 +58,16 @@ const CreateChar = () => {
     .then(raceData => setRaces(raceData.results))
     getBonuses()
   }, [currentCharRace.ability_bonuses])
+
+  useEffect(() => {
+    const getInv =()=>{
+      currentCharClass.starting_equipment?.map(stuff => {
+        setInv([...inv, stuff.equipment.name])
+      })    
+    }
+    getInv()
+  }, [currentCharClass]);
+
 
   const handleAddCharSheet = async (newCharSheetData) => {
     const newCharSheet = await charSheetService.create(newCharSheetData)
@@ -94,6 +105,7 @@ const CreateChar = () => {
       int: INT,
       wis: WIS,
       cha: CHA,
+      inv: inv
     }
     handleAddCharSheet(form)
   }
@@ -150,8 +162,6 @@ const CreateChar = () => {
   }
   
   const getBonuses = () => {
-
-    
     currentCharRace.ability_bonuses?.map((stat) => {
       
       if(stat.ability_score.index === 'str') {
@@ -356,6 +366,10 @@ const CreateChar = () => {
             :
               <p>No Sub Races</p>
             }
+            <h2>Starting Stuff</h2>
+            {currentCharClass.starting_equipment?.map((stuff,idx) =>
+              <p key={idx}>{stuff.equipment.name}</p> 
+            )}
           </div> 
         </div>
       </div>

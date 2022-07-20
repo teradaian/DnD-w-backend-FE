@@ -26,11 +26,42 @@ const CharSheetView = () => {
     .then(classData => setClasses(classData.results))
     getRaceList()
     .then(raceData => setRaces(raceData.results))
-    getBonuses()
-  }, [state,currentCharRace])
- 
-  console.log(currentCharRace);
+  }, [state])
 
+  useEffect(() => {
+    const getBonuses = () => {
+      setStrBonus(0)
+      setDexBonus(0)
+      setConBonus(0)
+      setIntBonus(0)
+      setWisBonus(0)
+      setChaBonus(0)
+      currentCharRace.ability_bonuses?.map((stat) => {
+      
+        if(stat.ability_score.index === 'str') {
+          setStrBonus(stat.bonus)  
+        }
+        if(stat.ability_score.index === 'dex' ) {
+          setDexBonus(stat.bonus)
+        }
+        if(stat.ability_score.index === 'con') {
+          setConBonus(stat.bonus)
+        }
+        if(stat.ability_score.index === 'int') {
+          setIntBonus(stat.bonus)
+        }
+        if(stat.ability_score.index === 'wis') {
+          setWisBonus(stat.bonus)
+        }
+        if(stat.ability_score.index === 'cha') {
+          setChaBonus(stat.bonus)
+        }
+      })
+    }
+    getBonuses()
+  }, [currentCharRace]);
+
+ 
   const table = {
     3: "-4",
     4: "-3",
@@ -50,35 +81,7 @@ const CharSheetView = () => {
     18:"+4",
   }
 
-  const getBonuses = () => {
-    setStrBonus(0)
-    setDexBonus(0)
-    setConBonus(0)
-    setIntBonus(0)
-    setWisBonus(0)
-    setChaBonus(0)
-    currentCharRace.ability_bonuses?.map((stat) => {
-    
-      if(stat.ability_score.index === 'str') {
-        setStrBonus(stat.bonus)  
-      }
-      if(stat.ability_score.index === 'dex' ) {
-        setDexBonus(stat.bonus)
-      }
-      if(stat.ability_score.index === 'con') {
-        setConBonus(stat.bonus)
-      }
-      if(stat.ability_score.index === 'int') {
-        setIntBonus(stat.bonus)
-      }
-      if(stat.ability_score.index === 'wis') {
-        setWisBonus(stat.bonus)
-      }
-      if(stat.ability_score.index === 'cha') {
-        setChaBonus(stat.bonus)
-      }
-    })
-  }
+
 
   console.log(state);
 
@@ -128,6 +131,11 @@ const CharSheetView = () => {
           <div id='int-bns'>{table[state.int]}</div>
           <div id='wis-bns'>{table[state.wis]}</div>
           <div id='cha-bns'>{table[state.cha]}</div>
+          <div id="sheet-inv">
+            {state.inv.map((item,idx)=>
+              <div key={idx}>{item}</div>
+            )}
+          </div>
         </div>
       </div>
       <button onClick={()=> navigate('/AllCharacters')}>Back</button>
