@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useNavigate} from 'react-router-dom'
-
+import Die from '../../components/Die/Die'
 
 const NavBar = ({ user, handleLogout, navItems }) => {
   const navagate = useNavigate()

@@ -87,7 +87,7 @@ const CharSheetView = () => {
 
   return ( 
     <>
-          <div className='app charSheetCard'>
+      <div className='app charSheetCard'>
         <div id='charSheet'>
           <img 
             id='race-pic'
@@ -114,15 +114,15 @@ const CharSheetView = () => {
           <div id='sheet-int'>{state.int}</div>
           <div id='sheet-wis'>{state.wis}</div>
           <div id='sheet-cha'>{state.cha}</div>
-          <div id='inspir'>333</div>
-          <div id='profBonus'>55</div>
+          <div id='inspir'></div>
+          <div id='profBonus'></div>
           <div id='st-str'> {strBonus ? strBonus : 0} </div>
           <div id='st-dex'> {dexBonus ? dexBonus : 0} </div>
           <div id='st-con'> {conBonus ? conBonus : 0} </div>
           <div id='st-int'> {intBonus ? intBonus : 0} </div>
           <div id='st-wis'> {wisBonus ? wisBonus : 0} </div>
           <div id='st-cha'> {chaBonus ? chaBonus : 0} </div>
-          <div id='armorClass'>3</div>
+          <div id='armorClass'>5</div>
           <div id='init'> </div>
           <div id='speed'> </div>
           <div id='str-bns'>{table[state.str]}</div>
@@ -134,7 +134,7 @@ const CharSheetView = () => {
           <div id="sheet-inv">
             {state.inv.map((item,idx)=>
               <div key={idx}>{item}</div>
-            )}
+              )}
           </div>
         </div>
       </div>

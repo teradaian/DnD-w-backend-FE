@@ -3,7 +3,6 @@ import { getRaceList } from '../../services/api-calls'
 import { getClassList } from '../../services/api-calls'
 import { getClassStats } from '../../services/api-calls'
 import { getRaceStats } from '../../services/api-calls'
-import Die from '../../components/Die/Die'
 import * as charSheetService from '../../services/charSheetService'
 import { useNavigate } from 'react-router-dom'
 
@@ -208,7 +207,7 @@ const CreateChar = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                />
+                  />
               </div>
               <div>
                 <label className="form-label">
@@ -222,12 +221,12 @@ const CreateChar = () => {
                   value={formData.class}
                   onChange={handleChange}
                   required
-                >
+                  >
                   <select onChange={ value =>  handleClassChange(value) } name="class" id="class">
                     <option>Pick Class</option>
                     {classes.map((char) => (
                       <option value={char.name} key={char.index}  >{char.name}</option>
-                    ))}
+                      ))}
                   </select>
                 </div>
               </div>
@@ -243,12 +242,12 @@ const CreateChar = () => {
                   value={formData.race}
                   onChange={handleChange}
                   required
-                >
+                  >
                   <select onChange={ value =>  handleRaceChange(value) } name="race" id="race">
                     <option>Pick Race</option>
                     {races.map((race) => (
                       <option value={race.name} key={race.index}>{race.name}</option>
-                    ))}
+                      ))}
                   </select>
                 </div>
                 <label className="form-label">
@@ -262,7 +261,7 @@ const CreateChar = () => {
                   value={formData.align}
                   onChange={handleChange}
                   required
-                >
+                  >
                   <select name="align" id="align">
                     <option>Pick Alignment</option>
                       <option value='Lawful Good' >Lawful Good</option>
@@ -287,12 +286,12 @@ const CreateChar = () => {
                   value={formData.background}
                   onChange={handleChange}
                   required
-                >
+                  >
                   <select name="background" id="background">
                     <option>Pick Background</option>
                     {backgrounds.map((bg,idx) => (
                       <option value={bg} key={idx}>{bg}</option>
-                    ))}
+                      ))}
                   </select>
                 </div>
               </div>
@@ -307,7 +306,7 @@ const CreateChar = () => {
                   name="level"
                   value={formData.level}
                   onChange={handleChange}
-                /><br/>
+                  /><br/>
               </div>
               <div className="form-control">
                   <label className="form-label">
@@ -325,7 +324,7 @@ const CreateChar = () => {
                 <button
                   type="submit"
                   disabled={!validForm}
-                >
+                  >
                   Add Character
                 </button>
               </div>
@@ -337,7 +336,7 @@ const CreateChar = () => {
             <button 
               onClick={() => {handleToggle()} }  
               hidden={toggle ? true : false}
-            >Roll Stat</button>
+              >Roll Stat</button>
                   <h4>STR: {STR===null ? <button hidden={toggle ? false : true} onClick={()=>{setSTR(roll4Stat);setToggle();setRoll4Stat('Roll')}}>Add Stat</button> : `Rolled` }</h4>
                   <h4>DEX: {DEX===null ? <button hidden={toggle ? false : true} onClick={()=>{setDEX(roll4Stat);setToggle();setRoll4Stat('Roll')}}>Add Stat</button> : 'Rolled' }</h4>
                   <h4>CON: {CON===null ? <button hidden={toggle ? false : true} onClick={()=>{setCON(roll4Stat);setToggle();setRoll4Stat('Roll')}}>Add Stat</button> : 'Rolled' }</h4>
