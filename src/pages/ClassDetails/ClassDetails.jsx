@@ -50,7 +50,6 @@ const ClassDetails = () => {
               <div className='lowerCard'>
                 <div className='lowerGridCard'>
                   <div>Hit die: d{classDetails.hit_die}</div>
-                    <h3>Speed: {classDetails.speed}</h3>
                     <h3>Proficiencies:</h3>
                     {classDetails.proficiencies.map((proficiency,idx) => (
                       <div key={idx}>{proficiency.name}</div>

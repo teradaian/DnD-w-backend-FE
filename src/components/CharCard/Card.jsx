@@ -11,7 +11,7 @@ const Card = (props) => {
           src={`/images/${props.charSheet.class}.svg`} 
           alt="class-logo"
         />
-         <img 
+        <img 
           style={{ width: "50px", height: "50px" }}
           src={`/images/${props.charSheet.race}.png`} 
           alt="race-logo"
