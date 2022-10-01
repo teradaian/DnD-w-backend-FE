@@ -20,7 +20,7 @@ import RaceDetails from './pages/RaceDetails/RaceDetails'
 import MyChars from './pages/MyChars/MyChars'
 import CharSheetView from './pages/CharSheetView/CharSheetView'
 import AllCharacters from './pages/AllCharacters/AllCharacters'
-
+import Store from './pages/Store/Store'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -31,6 +31,7 @@ const App = () => {
     {url: "/race-list", name: "Race List"},
     {url: "/monster-list", name: "Scary Monsters"}, 
     {url: "/spell-search", name: "Search for Spells"},
+    {url: "/store", name: "Store"},
     {url: "/MyCharacters", name: "My Characters"},
     {url: "/AllCharacters", name: "All Characters"}
   ])
@@ -66,6 +67,7 @@ const App = () => {
         <Route path='/allCharacters' element={<AllCharacters />} />
         <Route path="/myCharacters" element={<MyChars />} />
         <Route path="/CharSheetView" element={<CharSheetView/>} />
+        <Route path="/store" element={<Store/>} />
       </Routes>
     </div>
   )
