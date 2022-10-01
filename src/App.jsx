@@ -21,6 +21,8 @@ import MyChars from './pages/MyChars/MyChars'
 import CharSheetView from './pages/CharSheetView/CharSheetView'
 import AllCharacters from './pages/AllCharacters/AllCharacters'
 import Store from './pages/Store/Store'
+import CategoryDetails from './pages/Store/CategoryDetails/CategoryDetails'
+import ItemDetails from './pages/Store/ItemDetails/ItemDetails'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -68,6 +70,8 @@ const App = () => {
         <Route path="/myCharacters" element={<MyChars />} />
         <Route path="/CharSheetView" element={<CharSheetView/>} />
         <Route path="/store" element={<Store/>} />
+        <Route path="/storeCategory" element={<CategoryDetails/>} />
+        <Route path="/storeItem" element={<ItemDetails/>} />
       </Routes>
     </div>
   )

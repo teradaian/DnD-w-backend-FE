@@ -10,7 +10,6 @@ const Store = (props) => {
     getStore()
     .then(storeData => setStoreList(storeData.results))
   }, [])
-  console.log(storeList);
  
   return ( 
     <>
@@ -23,7 +22,7 @@ const Store = (props) => {
           {storeList.map((cat) => (
             <div className="monster_card card" key={cat.index}>
               <Link
-                to="/monster"
+                to="/storeCategory"
                 state={{ cat }}
               >
                 {cat.name}
