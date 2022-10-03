@@ -23,7 +23,7 @@ import AllCharacters from './pages/AllCharacters/AllCharacters'
 import Store from './pages/Store/Store'
 import CategoryDetails from './pages/Store/CategoryDetails/CategoryDetails'
 import ItemDetails from './pages/Store/ItemDetails/ItemDetails'
-
+import GameStart from './pages/Game/GameStart'
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
@@ -62,6 +62,7 @@ const App = () => {
         <Route path='/race-list' element={<RaceList/>} />
         <Route path='/race' element={<RaceDetails/>} />
         <Route path="/" element={<Landing user={user} />} />
+        <Route path='/start-game' element={<GameStart />} />
         <Route path="/signup" element={<Signup handleSignupOrLogin={handleSignupOrLogin} />} />
         <Route path="/login" element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
         <Route path="/profiles" element={user ? <Profiles /> : <Navigate to="/login" />} />

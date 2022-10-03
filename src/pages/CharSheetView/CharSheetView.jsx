@@ -84,11 +84,13 @@ const CharSheetView = () => {
 
 
   console.log(state);
-
+  
   return ( 
     <>
       <div className='app charSheetCard'>
         <div id='charSheet'>
+    <button onClick={()=> navigate('/AllCharacters')}>Back</button>
+    <button onClick={()=> navigate('/start-game')}>Start Game</button>
           <img 
             id='race-pic'
             style={{ width: "30px", height: "30px" }}
@@ -139,7 +141,6 @@ const CharSheetView = () => {
           </div>
         </div>
       </div>
-      <button onClick={()=> navigate('/AllCharacters')}>Back</button>
     </>
   );
 }
