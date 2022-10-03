@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { getSpellDetails } from '../../services/api-calls';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const SpellDetails = (props) => {
   const [spellDetails, setSpellDetails] = useState({})
   const { spellName } = useParams()
+  let navigate = useNavigate()
   
   useEffect(() => {
     getSpellDetails(spellName)
@@ -42,6 +43,7 @@ const SpellDetails = (props) => {
         </>
       }
     </div>
+    <button onClick={()=> navigate('/spell-search')}>Back</button>
   </>
   );
 }

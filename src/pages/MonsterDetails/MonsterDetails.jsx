@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { getDetails } from '../../services/api-calls';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const MonsterDetails = () => {
   const [monsterDetails, setMonsterDetails] = useState({})
   let location = useLocation()
-
+  let navigate = useNavigate()
   useEffect(() => {
     getDetails(location.state.monster.url)
     .then(monsterData => setMonsterDetails(monsterData))
   }, [] )
 
+  console.log(monsterDetails);
 
   return ( 
     <>
@@ -20,6 +21,8 @@ const MonsterDetails = () => {
       <div className='largeCard'>
         <h3>Monster Deets</h3>
         <h2>{monsterDetails.name}</h2>
+        <h4>Hit Points: {monsterDetails.hit_points}</h4>
+        <h4>Alignment: {monsterDetails.alignment}</h4>
         <h4>Size: {monsterDetails.size}</h4>
         <h4>Type: {monsterDetails.type}</h4>
         <h4>AC: {monsterDetails.armor_class}</h4>
@@ -38,6 +41,7 @@ const MonsterDetails = () => {
         }
       </div>
     </div>  
+    <button onClick={()=> navigate('/monster-list')}>Back</button>
   </>
   );
 }

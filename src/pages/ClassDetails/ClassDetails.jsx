@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { getDetails } from '../../services/api-calls';
 
 
@@ -7,6 +7,7 @@ const ClassDetails = () => {
   const [classDetails, setClassDetails] = useState({})
   const [toggle, setToggle] = useState (false)
   let location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(()=> {
     getDetails(location.state.classTitle.url)
@@ -70,6 +71,7 @@ const ClassDetails = () => {
           </>
         }
       </div>
+      <button onClick={()=> navigate('/class-list')}>Back</button>
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { getDetails } from '../../services/api-calls';
 
 
@@ -7,6 +7,7 @@ const RaceDetails = () => {
   const [raceDetails, setRaceDetails] = useState({})
   const [toggle, setToggle] = useState (false)
   let location = useLocation()
+  let navigate = useNavigate()
 
   useEffect(()=> {
     getDetails(location.state.raceTitle.url)
@@ -84,6 +85,7 @@ const RaceDetails = () => {
           </>
         }
       </div>
+      <button onClick={()=> navigate('/race-list')}>Back</button>
     </>
   );
 }

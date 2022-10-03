@@ -42,6 +42,7 @@ const CreateChar = () => {
     race: '',
     level: 1,
     background:'',
+    experience: 0,
   })
 
   const backgrounds =['Acolyte', 'Charlatan', 'Criminal', 'Entertainer', 'Folk', 'Guild Artisan', 'Hermit', 'Noble', 'Outlander', 'Sage', 'Sailor', 'Soldier', 'Urchin']
@@ -104,7 +105,8 @@ const CreateChar = () => {
       int: INT,
       wis: WIS,
       cha: CHA,
-      inv: inv
+      inv: inv,
+      experience: formData.experience,
     }
     handleAddCharSheet(form)
   }
@@ -296,17 +298,7 @@ const CreateChar = () => {
                 </div>
               </div>
               <div>
-                <label className="form-label">
-                  Character's level<br/>
-                </label>
-                <input 
-                  type="number"
-                  className="form-control"
-                  id="level"
-                  name="level"
-                  value={formData.level}
-                  onChange={handleChange}
-                  /><br/>
+                <br />        
               </div>
               <div className="form-control">
                   <label className="form-label">

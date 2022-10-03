@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { getDetails } from '../../../services/api-calls';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import AllItemDetails from './AllItemDetails/AllItemDetails';
 
 const ItemDetails = () => {
+  let navigate = useNavigate()
   const [itemDetails, setItemDetails] = useState([])
   let location = useLocation()
   console.log(itemDetails);
@@ -21,6 +22,7 @@ const ItemDetails = () => {
         <AllItemDetails itemDetails={itemDetails}/>
       </div>
     </div>  
+    <button onClick={()=> navigate('/store')}>Back</button>
   </>
   );
 }

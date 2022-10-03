@@ -131,7 +131,8 @@ const CharSheetView = () => {
           <div id='int-bns'>{table[state.int]}</div>
           <div id='wis-bns'>{table[state.wis]}</div>
           <div id='cha-bns'>{table[state.cha]}</div>
-          <div id="sheet-inv">
+          <div id='experience'>{state.experience}</div>
+          <div id="sheet-inv"> 
             {state.inv.map((item,idx)=>
               <div key={idx}>{item}</div>
               )}
