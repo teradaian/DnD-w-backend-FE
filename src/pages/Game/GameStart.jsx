@@ -1,21 +1,23 @@
 import CharStats from "../../components/Game/CharStats/CharStats"
+import HitPoints from "../../components/Game/HitPoints/HitPoints"
+import GameMap from '../../components/Game/GameMap/GameMap'
+import { useLocation } from "react-router-dom"
 
-
-const GameStart = (props) => {
+const GameStart = () => {
+  const {state} = useLocation()
+  
   return ( 
     <>
       <div className="app">
-        <div className="app largeCard">
-            <CharStats/>
-        </div>
-        <div className="app largeCard">
-            <div>this is the main grid display</div>
+        <div className="app inline">
+          <CharStats state={state}/>
+          <GameMap/>
         </div>
         <div className="app card">
-            <div>this is the hitpoint area</div>
+            <HitPoints state={state}/>
         </div>
         <div className="app card">
-            <div>this is the hunger bar</div>
+            <div>Inventory stuff</div>
         </div>
         <div className="app card">
             <div>this is for the dungeon masters modal</div>

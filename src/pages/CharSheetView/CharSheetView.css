@@ -35,6 +35,12 @@
   top: 265px;
   left: 640px;
 }
+#hit-points{
+  align-items: center;
+  position: absolute;
+  top: 450px;
+  left: 450px;
+}
 #sheet-str{
   align-items: center;
   position: absolute;

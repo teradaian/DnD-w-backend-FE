@@ -2,8 +2,8 @@ import { useState, useEffect } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import { getRaceList } from '../../services/api-calls'
 import { getClassList } from '../../services/api-calls'
-import { getClassStats } from '../../services/api-calls'
 import { getRaceStats } from '../../services/api-calls'
+import { Link } from 'react-router-dom'
 import './CharSheetView.css'
 
 const CharSheetView = () => {
@@ -80,17 +80,16 @@ const CharSheetView = () => {
     17:"+3",
     18:"+4",
   }
-
-
-
-  console.log(state);
   
   return ( 
     <>
       <div className='app charSheetCard'>
         <div id='charSheet'>
-    <button onClick={()=> navigate('/AllCharacters')}>Back</button>
-    <button onClick={()=> navigate('/start-game')}>Start Game</button>
+          <button onClick={()=> navigate('/AllCharacters')}>Back</button>
+          <Link to='/start-game' state={{state}} key={state.name}>
+            <button>Play the Game</button>
+          </Link>
+      
           <img 
             id='race-pic'
             style={{ width: "30px", height: "30px" }}
@@ -110,6 +109,7 @@ const CharSheetView = () => {
           <div id='playerName'>{state.owner.name}</div>
           <div id='sheet-race'>{state.race}</div>
           <div id='alignment'>{state.align}</div>
+          <div id='hit-points'>{state.hitPoints}</div>
           <div id='sheet-str'>{state.str}</div>
           <div id='sheet-dex'>{state.dex}</div>
           <div id='sheet-con'>{state.con}</div>
