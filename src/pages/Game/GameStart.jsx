@@ -9,7 +9,7 @@ const GameStart = (props) => {
             <CharStats/>
         </div>
         <div className="app largeCard">
-            <div>this is the main grid display</div>
+            <div>___ this is the main grid display ___</div>
         </div>
         <div className="app card">
             <div>this is the hitpoint area</div>
